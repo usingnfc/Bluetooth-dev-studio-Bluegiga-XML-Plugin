@@ -13,3 +13,9 @@ and run BDS and excute pluging as normal.
 
 Thanks again 
 Lee.
+
+#Known Issues
+
+Value element is created but not used so you will have to put any hardcoded values.
+
+When combining some services causes value cannot be null error - in progress
