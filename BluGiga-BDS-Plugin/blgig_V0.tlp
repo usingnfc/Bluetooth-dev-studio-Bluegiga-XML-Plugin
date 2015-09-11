@@ -2,17 +2,17 @@
 <configuration>
 
 	{%- for service in Services -%}
-	
+
 	<service uuid="{{service.UUID}}">
 		<description>{{service.Name}}</description>	
-		
+
 		{%- for characteristic in service.Characteristics -%}
-			<characteristic uuid="{{characteristic.UUID}}">
-				<description>{{characteristic.Name}}</description>
-				<properties read="{% if characteristic.Properties.Read == "Mandatory" %}true{% else %}false{% endif %}" write="{% if characteristic.Properties.Write == "Mandatory" %}true{% else %}false{% endif %}" indicate="{% if characteristic.Properties.Indicate == "Mandatory" %}true{% else %}false{% endif %}" notify="{% if characteristic.Properties.Notify == "Mandatory" %}true{% else %}false{% endif %}" write_no_response="{% if characteristic.Properties.Write == "Mandatory" %}true{% else %}false{% endif %}"/>
-				<value></value>
-			</characteristic>
-			
+		<characteristic uuid="{{characteristic.UUID}}">
+			<description>{{characteristic.Name}}</description>
+			<properties read="{% if characteristic.Properties[0].Read == 'Mandatory' %}true{% else %}false{% endif %}" write="{% if characteristic.Properties[0].Write == 'Mandatory' %}true{% else %}false{% endif %}" indicate="{% if characteristic.Properties[0].Indicate == 'Mandatory' %}true{% else %}false{% endif %}" notify="{% if characteristic.Properties[0].Notify == 'Mandatory' %}true{% else %}false{% endif %}" write_no_response="{% if characteristic.Properties[0].Write == 'Mandatory' %}true{% else %}false{% endif %}"/>
+			<value></value>
+		</characteristic>
+
 		{%- endfor -%}
 	</service>
 	{%- endfor -%}  
